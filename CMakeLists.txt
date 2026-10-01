@@ -7,8 +7,40 @@ include(FetchContent)
 set(FETCHCONTENT_QUIET FALSE)
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE) # don't build the supplied examples
 set(BUILD_GAMES    OFF CACHE BOOL "" FORCE) # don't build the supplied example games
-set(GLFW_BUILD_WAYLAND ON CACHE BOOL "" FORCE) # enable wayland on linux
-set(GLFW_BUILD_X11 OFF CACHE BOOL "" FORCE) # disable x11 on linux (switch these settings around as you please)
+
+# Platform auto-detection (native Linux builds only). Values are cache defaults, override with -D on the command line
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND NOT CMAKE_CROSSCOMPILING)
+    # Raspberry Pi: device-tree model looks like "Raspberry Pi 4 Model B Rev 1.4"
+    set(IS_RASPBERRY_PI FALSE)
+    if(EXISTS "/proc/device-tree/model")
+        file(READ "/proc/device-tree/model" _model)
+        if(_model MATCHES "Raspberry Pi")
+            set(IS_RASPBERRY_PI TRUE)
+            message(STATUS "Detected: ${_model}")
+        endif()
+    endif()
+
+    # Pi 4/5 support desktop GL 3.1 at most, but raylib defaults to 3.3. DRM builds pick GLES on their own
+    if(IS_RASPBERRY_PI AND (NOT DEFINED PLATFORM OR PLATFORM STREQUAL "Desktop"))
+        set(OPENGL_VERSION "2.1" CACHE STRING "Force a specific OpenGL Version?")
+    endif()
+
+    # Build the GLFW backend matching the current session. If unknown (SSH, TTY, CI) build both, GLFW picks one at runtime
+    set(_session "$ENV{XDG_SESSION_TYPE}")
+    if(_session STREQUAL "wayland")
+        set(_wayland ON)
+        set(_x11 OFF)
+    elseif(_session STREQUAL "x11")
+        set(_wayland OFF)
+        set(_x11 ON)
+    else()
+        set(_wayland ON)
+        set(_x11 ON)
+    endif()
+    set(GLFW_BUILD_WAYLAND ${_wayland} CACHE BOOL "Build the bundled GLFW with Wayland support")
+    set(GLFW_BUILD_X11     ${_x11}     CACHE BOOL "Build the bundled GLFW with X11 support")
+    message(STATUS "Session '${_session}': GLFW Wayland=${GLFW_BUILD_WAYLAND} X11=${GLFW_BUILD_X11}")
+endif()
 
 FetchContent_Declare(
     raylib
