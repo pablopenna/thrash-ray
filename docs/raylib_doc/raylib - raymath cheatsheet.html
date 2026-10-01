@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html data-darkreader-mode="dynamic" data-darkreader-scheme="dark"><head><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">@layer {
+html {
+    background-color: var(--darkreader-background-ffffff, #181a1b) !important;
+}
+html {
+    color-scheme: dark !important;
+}
+iframe {
+    color-scheme: dark !important;
+}
+html, body {
+    background-color: var(--darkreader-background-ffffff, #181a1b);
+}
+html, body {
+    border-color: var(--darkreader-border-4c4c4c, #736b5e);
+    color: var(--darkreader-text-000000, #e8e6e3);
+}
+a {
+    color: var(--darkreader-text-0040ff, #3391ff);
+}
+table {
+    border-color: var(--darkreader-border-808080, #545b5e);
+}
+mark {
+    color: var(--darkreader-text-000000, #e8e6e3);
+}
+::placeholder {
+    color: var(--darkreader-text-a9a9a9, #b2aba1);
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: var(--darkreader-background-faffbd, #404400) !important;
+    color: var(--darkreader-text-000000, #e8e6e3) !important;
+}
+::selection {
+    background-color: var(--darkreader-background-0060d4, #004daa) !important;
+    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
+}
+::-moz-selection {
+    background-color: var(--darkreader-background-0060d4, #004daa) !important;
+    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
+}
+}</style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">c-wiz div > svg > circle, .jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container, div.mc-ip-hide[style*="background: rgb(255, 255, 255) !important"], [style*="color: rgb(0, 0, 1) !important;"] {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: var(--darkreader-background-ffffff, #181a1b);
+   --darkreader-neutral-text: var(--darkreader-text-000000, #e8e6e3);
+   --darkreader-selection-background: var(--darkreader-background-0060d4, #004daa);
+   --darkreader-selection-text: var(--darkreader-text-ffffff, #e8e6e3);
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>raylib - raymath cheatsheet</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta name="title" content="raylib - cheatsheet">
+        <meta name="description" content="raylib is a simple and easy-to-use library to enjoy videogames programming. Don't miss latest functions added to raylib... check raylib cheatsheet">
+        <meta name="keywords" content="raylib, videogames, programming, C, C++, library, learn, study, simple, easy, free, open source, raysan">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Open Graph metatags for sharing -->
+        <meta property="og:title" content="raylib - cheatsheet">
+        <meta property="og:image" content="https://www.raylib.com/common/img/raylib_logo_card.png">
+        <meta property="og:url" content="https://www.raylib.com">
+        <meta property="og:site_name" content="raylib">
+        <meta property="og:description" content="Don't miss latest functions added to raylib... check raylib cheatsheet">
+
+        <!-- Add jQuery library -->
+        <script type="text/javascript" src="raylib%20-%20raymath%20cheatsheet_files/jquery-latest.min_wz2r.js"></script><meta name="darkreader" content="f51d171eca524cbdb8e7c850c5c881b6"><style class="darkreader darkreader--override" media="screen">c-wiz div {
+    --action-items-action-item-background-color: var(--darkreader-neutral-background) !important;
+}
+.jfk-bubble.gtx-bubble {
+    background-color: white !important;
+}
+.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #684b00) !important;
+    border-color: var(--darkreader-background-c59d00, #9e7e00) !important;
+    color: var(--darkreader-text-302505, #d7d4cf) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #1b4958) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #0f3a47) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #1e2021) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #432c09) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #245d70) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select {
+    --darkreader-bg--form-control-background-color: rgba(22, 22, 22, 0) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}
+.d2l-twopanelselector-side.d2l-twopanelselector-side-sep {
+    background: var(--darkreader-bg--d2l-color-mica) !important;
+}
+.d2l-le-TreeAccordionItem-anchor::before {
+    background: var(--darkreader-bg--d2l-color-corundum) !important;
+}
+table[class|="moz-header"] {
+    background: none;
+}
+*[style*="color: rgba(0,0,0,"]:not([style*="color: rgba(0,0,0,0)"]),
+*[style*="color: rgba(0, 0, 0,"]:not([style*="color: rgba(0, 0, 0, 0)"]),
+*[style*="color:#000"]:not(.cell-input > span),
+*[style*="color:black"]:not(.cell-input > span),
+*[style*="color:#282828"]:not(.cell-input > span),
+*[style*="color:#444"]:not(.cell-input > span),
+*[style*="color: #222222"]:not(.cell-input > span) {
+    color: var(--darkreader-neutral-text) !important;
+}
+*[style*="background:#fff"],
+*[style*="background-color:#fff"],
+*[style*="background: #fff"],
+*[style*="background: rgb(255, 255, 255)"] {
+    background: var(--darkreader-neutral-background) !important;
+}
+*[bgcolor="#F5F5F5"],
+*[style*="background-color: #F5F5F5"] {
+    background: var(--darkreader-background-f5f5f5, #1e2021) !important;
+}
+*[style*="background: #e6e6e6"] {
+    background: var(--darkreader-background-e6e6e6, #26292b) !important;
+}
+body[style*="background: rgb(255, 255, 255) !important"] *:not(a),
+.body[style*="background-color: rgb(254, 254, 254) !important"] *:not(a) {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+div[style*="www.gstatic.com/android/"] {
+    background: none !important;
+}
+*[style*="background:#f9f9f9"] {
+    background: var(--darkreader-background-f9f9f9, #1b1e1f) !important;
+}
+body.mediawiki.skin-vector #mw-page-base {
+    background-image: none !important;
+}
+.overflow-hidden .spinning-bg,
+.overflow-hidden .solid-bg {
+    background: transparent !important;
+}
+*[style*="color: rgb(0,0,0) !imoprtant"][style*="--darkreader-inline-color"],
+*[style*="color: rgb(0, 0, 0) !important"][style*="--darkreader-inline-color"] {
+    -webkit-text-fill-color: var(--darkreader-inline-color) !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style>
+
+        <!-- hightlight.js - Syntax highlighting for the Web -->
+        <link rel="stylesheet" href="raylib%20-%20raymath%20cheatsheet_files/docco.min_wz2r.css"><style class="darkreader darkreader--sync" media="screen"></style>
+        <script src="raylib%20-%20raymath%20cheatsheet_files/highlight.min_wz2r.js"></script>
+
+        <style type="text/css">
+         @font-face {
+             font-family: 'grixel_acme_7_wide_xtnd';
+             src: url('../common/font/acme_7_wide_xtnd.eot');
+             src: url('../common/font/acme_7_wide_xtnd.eot?#iefix') format('embedded-opentype'),
+             url('../common/font/acme_7_wide_xtnd.woff') format('woff'),
+             url('../common/font/acme_7_wide_xtnd.ttf') format('truetype');
+             font-weight: normal;
+             font-style: normal;
+             font-size-adjust:0.49;
+         }
+         body{background-color:#f5f5f5;}
+         #fulldata{width: 1315px!important;}
+         .eximage img{margin: 0 auto; border: 1px solid; border-color: black; width:770px; height:auto;}
+         p{font-family: grixel_acme_7_wide_xtnd, Courier New, Verdana, Arial; font-size:13px; line-height:24px;}
+         a{font-family: grixel_acme_7_wide_xtnd, Courier New, Verdana, Arial; font-size:13px; line-height:24px;}
+         pre code{font-family: Courier New; font-size:12px; width: auto!important; border: 1px solid; border-color:#b0b0b0; width:758px; height:auto; }
+         .exdownbtn{
+             width:250px; height:30px; float:left; position: relative; cursor:pointer; font-weight:bold; font-size:10px;
+             line-height:30px; text-align: center; border-width:5px; background-color:#e1e1e1; color:#5c5a5a;
+             border:4px solid #898888; font-family: grixel_acme_7_wide_xtnd, Courier New, Verdana, Arial;
+         }
+         .exdownbtn:hover{background-color:#f0d6d6; color:#c55757; border:4px solid #e66666;}
+         #math pre code{border:10px solid; border-color:#c170ff; background-color:#deb3ff; }
+         #logo{width:128px; height:128px; float:left; position:relative; background-image:url(../common/img/raylib_logo.png);}
+         #header{position:relative; height:110px; width: 1000px;}
+         #title, #plinks, #version{position:relative; float:left; margin:0px; margin-left:10px; margin-top:10px;}
+         #plinks{color: gray;}
+         #plinks a, #copyright a{color: gray; text-decoration:none;}
+         #plinks a:hover{color: black;}
+         #version {margin-top: 23px; width:500px;}
+         #pmath{margin-bottom:-12px; margin-left:12px; color:#9d1cff;}
+
+         #fullgroup{
+             display: grid;
+             grid-column-gap: 20px;
+             grid-template-columns: auto auto;
+         }
+
+         #copyright p{color:#8b8b8b; font-size:10px}
+         #copyright a:hover{color:black;}
+
+         #downpdf{text-decoration: none;color:#aaaaaa;}
+         #downpdf:hover{color:#444;}
+        </style><style class="darkreader darkreader--sync" media="screen"></style>
+
+        <script type="text/javascript">
+         $(document).ready(function() {
+             $.get('en/raylib_raymath.c', function(data) {
+                 $('#math pre code').text(data);
+                 $('#math pre code').each(function(i, e) {hljs.highlightBlock(e)});
+             }, 'text');
+         });
+        </script>
+    </head>
+
+    <body>
+        <div id="header">
+            <a id="logo" href="https://www.raylib.com/index.html"></a>
+            <p id="title">A simple and easy-to-use math library for games programming</p>
+            <p id="plinks">[<a href="https://discord.gg/raylib">raylib Discord server</a>][<a href="https://github.com/raysan5/raylib">github.com/raysan5/raylib/raymath</a>][<a href="https://github.com/raysan5/raylib/blob/master/src/raymath.h">raylib.h</a>]</p>
+            <p></p>
+            <p id="version">v2.0 quick reference card</p>
+        </div>
+        <br>
+        <div id="fulldata">
+            <p id="pmath">module: raymath</p>
+            <div id="math"><pre><code class="cpp hljs ">
+    <span class="hljs-comment">// Utils math</span>
+    <span class="hljs-keyword">float</span> Clamp(<span class="hljs-keyword">float</span> value, <span class="hljs-keyword">float</span> min, <span class="hljs-keyword">float</span> max)                              <span class="hljs-comment">// Clamp float value</span>
+    <span class="hljs-keyword">float</span> Lerp(<span class="hljs-keyword">float</span> start, <span class="hljs-keyword">float</span> end, <span class="hljs-keyword">float</span> amount)                            <span class="hljs-comment">// Calculate linear interpolation between two floats</span>
+    <span class="hljs-keyword">float</span> Normalize(<span class="hljs-keyword">float</span> value, <span class="hljs-keyword">float</span> start, <span class="hljs-keyword">float</span> end)                        <span class="hljs-comment">// Normalize input value within input range</span>
+    <span class="hljs-keyword">float</span> Remap(<span class="hljs-keyword">float</span> value, <span class="hljs-keyword">float</span> inputStart, <span class="hljs-keyword">float</span> inputEnd, <span class="hljs-keyword">float</span> outputStart, <span class="hljs-keyword">float</span> outputEnd) <span class="hljs-comment">// Remap input value within input range to output range</span>
+    <span class="hljs-keyword">float</span> Wrap(<span class="hljs-keyword">float</span> value, <span class="hljs-keyword">float</span> min, <span class="hljs-keyword">float</span> max)                               <span class="hljs-comment">// Wrap input value from min to max</span>
+    <span class="hljs-keyword">int</span> FloatEquals(<span class="hljs-keyword">float</span> x, <span class="hljs-keyword">float</span> y)                                           <span class="hljs-comment">// Check whether two given floats are almost equal</span>
+
+    <span class="hljs-comment">// Vector2 math</span>
+    Vector2 Vector2Zero(<span class="hljs-keyword">void</span>)                                                   <span class="hljs-comment">// Vector with components value 0.0f</span>
+    Vector2 Vector2One(<span class="hljs-keyword">void</span>)                                                    <span class="hljs-comment">// Vector with components value 1.0f</span>
+    Vector2 Vector2Add(Vector2 v1, Vector2 v2)                                  <span class="hljs-comment">// Add two vectors (v1 + v2)</span>
+    Vector2 Vector2AddValue(Vector2 v, <span class="hljs-keyword">float</span> add)                               <span class="hljs-comment">// Add vector and float value</span>
+    Vector2 Vector2Subtract(Vector2 v1, Vector2 v2)                             <span class="hljs-comment">// Subtract two vectors (v1 - v2)</span>
+    Vector2 Vector2SubtractValue(Vector2 v, <span class="hljs-keyword">float</span> sub)                          <span class="hljs-comment">// Subtract vector by float value</span>
+    <span class="hljs-keyword">float</span> Vector2Length(Vector2 v)                                              <span class="hljs-comment">// Calculate vector length</span>
+    <span class="hljs-keyword">float</span> Vector2LengthSqr(Vector2 v)                                           <span class="hljs-comment">// Calculate vector square length</span>
+    <span class="hljs-keyword">float</span> Vector2DotProduct(Vector2 v1, Vector2 v2)                             <span class="hljs-comment">// Calculate two vectors dot product</span>
+    <span class="hljs-keyword">float</span> Vector2CrossProduct(Vector2 v1, Vector2 v2)                           <span class="hljs-comment">// Calculate two vectors cross product</span>
+    <span class="hljs-keyword">float</span> Vector2Distance(Vector2 v1, Vector2 v2)                               <span class="hljs-comment">// Calculate distance between two vectors</span>
+    <span class="hljs-keyword">float</span> Vector2DistanceSqr(Vector2 v1, Vector2 v2)                            <span class="hljs-comment">// Calculate square distance between two vectors</span>
+    <span class="hljs-keyword">float</span> Vector2Angle(Vector2 v1, Vector2 v2)                                  <span class="hljs-comment">// Calculate the signed angle from v1 to v2, relative to the origin (0, 0) NOTE: Coordinate system convention: positive X right, positive Y down positive angles appear clockwise, and negative angles appear counterclockwise</span>
+    <span class="hljs-keyword">float</span> Vector2LineAngle(Vector2 start, Vector2 end)                          <span class="hljs-comment">// Calculate angle defined by a two vectors line NOTE: Parameters need to be normalized Current implementation should be aligned with glm::angle</span>
+    Vector2 Vector2Scale(Vector2 v, <span class="hljs-keyword">float</span> scale)                                <span class="hljs-comment">// Scale vector (multiply by value)</span>
+    Vector2 Vector2Multiply(Vector2 v1, Vector2 v2)                             <span class="hljs-comment">// Multiply vector by vector</span>
+    Vector2 Vector2Negate(Vector2 v)                                            <span class="hljs-comment">// Negate vector</span>
+    Vector2 Vector2Divide(Vector2 v1, Vector2 v2)                               <span class="hljs-comment">// Divide vector by vector</span>
+    Vector2 Vector2Normalize(Vector2 v)                                         <span class="hljs-comment">// Normalize provided vector</span>
+    Vector2 Vector2Transform(Vector2 v, Matrix mat)                             <span class="hljs-comment">// Transforms a Vector2 by a given Matrix</span>
+    Vector2 Vector2Lerp(Vector2 v1, Vector2 v2, <span class="hljs-keyword">float</span> amount)                   <span class="hljs-comment">// Calculate linear interpolation between two vectors</span>
+    Vector2 Vector2Reflect(Vector2 v, Vector2 normal)                           <span class="hljs-comment">// Calculate reflected vector to normal</span>
+    Vector2 Vector2Min(Vector2 v1, Vector2 v2)                                  <span class="hljs-comment">// Get min value for each pair of components</span>
+    Vector2 Vector2Max(Vector2 v1, Vector2 v2)                                  <span class="hljs-comment">// Get max value for each pair of components</span>
+    Vector2 Vector2Rotate(Vector2 v, <span class="hljs-keyword">float</span> angle)                               <span class="hljs-comment">// Rotate vector by angle</span>
+    Vector2 Vector2MoveTowards(Vector2 v, Vector2 target, <span class="hljs-keyword">float</span> maxDistance)    <span class="hljs-comment">// Move Vector towards target</span>
+    Vector2 Vector2Invert(Vector2 v)                                            <span class="hljs-comment">// Invert the given vector</span>
+    Vector2 Vector2Clamp(Vector2 v, Vector2 min, Vector2 max)                   <span class="hljs-comment">// Clamp the components of the vector between min and max values specified by the given vectors</span>
+    Vector2 Vector2ClampValue(Vector2 v, <span class="hljs-keyword">float</span> min, <span class="hljs-keyword">float</span> max)                  <span class="hljs-comment">// Clamp the magnitude of the vector between two min and max values</span>
+    <span class="hljs-keyword">int</span> Vector2Equals(Vector2 p, Vector2 q)                                     <span class="hljs-comment">// Check whether two given vectors are almost equal</span>
+    Vector2 Vector2Refract(Vector2 v, Vector2 n, <span class="hljs-keyword">float</span> r)                       <span class="hljs-comment">// Compute the direction of a refracted ray v: normalized direction of the incoming ray n: normalized normal vector of the interface of two optical media r: ratio of the refractive index of the medium from where the ray comes to the refractive index of the medium on the other side of the surface</span>
+
+    <span class="hljs-comment">// Vector3 math</span>
+    Vector3 Vector3Zero(<span class="hljs-keyword">void</span>)                                                   <span class="hljs-comment">// Vector with components value 0.0f</span>
+    Vector3 Vector3One(<span class="hljs-keyword">void</span>)                                                    <span class="hljs-comment">// Vector with components value 1.0f</span>
+    Vector3 Vector3Add(Vector3 v1, Vector3 v2)                                  <span class="hljs-comment">// Add two vectors</span>
+    Vector3 Vector3AddValue(Vector3 v, <span class="hljs-keyword">float</span> add)                               <span class="hljs-comment">// Add vector and float value</span>
+    Vector3 Vector3Subtract(Vector3 v1, Vector3 v2)                             <span class="hljs-comment">// Subtract two vectors</span>
+    Vector3 Vector3SubtractValue(Vector3 v, <span class="hljs-keyword">float</span> sub)                          <span class="hljs-comment">// Subtract vector by float value</span>
+    Vector3 Vector3Scale(Vector3 v, <span class="hljs-keyword">float</span> scalar)                               <span class="hljs-comment">// Multiply vector by scalar</span>
+    Vector3 Vector3Multiply(Vector3 v1, Vector3 v2)                             <span class="hljs-comment">// Multiply vector by vector</span>
+    Vector3 Vector3CrossProduct(Vector3 v1, Vector3 v2)                         <span class="hljs-comment">// Calculate two vectors cross product</span>
+    Vector3 Vector3Perpendicular(Vector3 v)                                     <span class="hljs-comment">// Calculate one vector perpendicular vector</span>
+    <span class="hljs-keyword">float</span> Vector3Length(<span class="hljs-keyword">const</span> Vector3 v)                                        <span class="hljs-comment">// Calculate vector length</span>
+    <span class="hljs-keyword">float</span> Vector3LengthSqr(<span class="hljs-keyword">const</span> Vector3 v)                                     <span class="hljs-comment">// Calculate vector square length</span>
+    <span class="hljs-keyword">float</span> Vector3DotProduct(Vector3 v1, Vector3 v2)                             <span class="hljs-comment">// Calculate two vectors dot product</span>
+    <span class="hljs-keyword">float</span> Vector3Distance(Vector3 v1, Vector3 v2)                               <span class="hljs-comment">// Calculate distance between two vectors</span>
+    <span class="hljs-keyword">float</span> Vector3DistanceSqr(Vector3 v1, Vector3 v2)                            <span class="hljs-comment">// Calculate square distance between two vectors</span>
+    <span class="hljs-keyword">float</span> Vector3Angle(Vector3 v1, Vector3 v2)                                  <span class="hljs-comment">// Calculate angle between two vectors</span>
+    Vector3 Vector3Negate(Vector3 v)                                            <span class="hljs-comment">// Negate provided vector (invert direction)</span>
+    Vector3 Vector3Divide(Vector3 v1, Vector3 v2)                               <span class="hljs-comment">// Divide vector by vector</span>
+    Vector3 Vector3Normalize(Vector3 v)                                         <span class="hljs-comment">// Normalize provided vector</span>
+    Vector3 Vector3Project(Vector3 v1, Vector3 v2)                              <span class="hljs-comment">// Calculate the projection of the vector v1 on to v2</span>
+    Vector3 Vector3Reject(Vector3 v1, Vector3 v2)                               <span class="hljs-comment">// Calculate the rejection of the vector v1 on to v2</span>
+    <span class="hljs-keyword">void</span> Vector3OrthoNormalize(Vector3 *v1, Vector3 *v2)                        <span class="hljs-comment">// Orthonormalize provided vectors Makes vectors normalized and orthogonal to each other Gram-Schmidt function implementation</span>
+    Vector3 Vector3Transform(Vector3 v, Matrix mat)                             <span class="hljs-comment">// Transforms a Vector3 by a given Matrix</span>
+    Vector3 Vector3RotateByQuaternion(Vector3 v, Quaternion q)                  <span class="hljs-comment">// Transform a vector by quaternion rotation</span>
+    Vector3 Vector3RotateByAxisAngle(Vector3 v, Vector3 axis, <span class="hljs-keyword">float</span> angle)      <span class="hljs-comment">// Rotates a vector around an axis</span>
+    Vector3 Vector3MoveTowards(Vector3 v, Vector3 target, <span class="hljs-keyword">float</span> maxDistance)    <span class="hljs-comment">// Move Vector towards target</span>
+    Vector3 Vector3Lerp(Vector3 v1, Vector3 v2, <span class="hljs-keyword">float</span> amount)                   <span class="hljs-comment">// Calculate linear interpolation between two vectors</span>
+    Vector3 Vector3CubicHermite(Vector3 v1, Vector3 tangent1, Vector3 v2, Vector3 tangent2, <span class="hljs-keyword">float</span> amount) <span class="hljs-comment">// Calculate cubic hermite interpolation between two vectors and their tangents as described in the GLTF 2.0 specification: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#interpolation-cubic</span>
+    Vector3 Vector3Reflect(Vector3 v, Vector3 normal)                           <span class="hljs-comment">// Calculate reflected vector to normal</span>
+    Vector3 Vector3Min(Vector3 v1, Vector3 v2)                                  <span class="hljs-comment">// Get min value for each pair of components</span>
+    Vector3 Vector3Max(Vector3 v1, Vector3 v2)                                  <span class="hljs-comment">// Get max value for each pair of components</span>
+    Vector3 Vector3Barycenter(Vector3 p, Vector3 a, Vector3 b, Vector3 c)       <span class="hljs-comment">// Compute barycenter coordinates (u, v, w) for point p with respect to triangle (a, b, c) NOTE: Assumes P is on the plane of the triangle</span>
+    Vector3 Vector3Unproject(Vector3 source, Matrix projection, Matrix view)    <span class="hljs-comment">// Projects a Vector3 from screen space into object space NOTE: Self-contained function, no other raymath functions are called</span>
+    float3 Vector3ToFloatV(Vector3 v)                                           <span class="hljs-comment">// Get Vector3 as float array</span>
+    Vector3 Vector3Invert(Vector3 v)                                            <span class="hljs-comment">// Invert the given vector</span>
+    Vector3 Vector3Clamp(Vector3 v, Vector3 min, Vector3 max)                   <span class="hljs-comment">// Clamp the components of the vector between min and max values specified by the given vectors</span>
+    Vector3 Vector3ClampValue(Vector3 v, <span class="hljs-keyword">float</span> min, <span class="hljs-keyword">float</span> max)                  <span class="hljs-comment">// Clamp the magnitude of the vector between two values</span>
+    <span class="hljs-keyword">int</span> Vector3Equals(Vector3 p, Vector3 q)                                     <span class="hljs-comment">// Check whether two given vectors are almost equal</span>
+    Vector3 Vector3Refract(Vector3 v, Vector3 n, <span class="hljs-keyword">float</span> r)                       <span class="hljs-comment">// Compute the direction of a refracted ray v: normalized direction of the incoming ray n: normalized normal vector of the interface of two optical media r: ratio of the refractive index of the medium from where the ray comes to the refractive index of the medium on the other side of the surface</span>
+
+    <span class="hljs-comment">// Vector4 math</span>
+    Vector4 Vector4Zero(<span class="hljs-keyword">void</span>)                                                   <span class="hljs-comment">// Get  vector zero</span>
+    Vector4 Vector4One(<span class="hljs-keyword">void</span>)                                                    <span class="hljs-comment">// Get vector one</span>
+    Vector4 Vector4Add(Vector4 v1, Vector4 v2)                                  <span class="hljs-comment">// Add two vectors</span>
+    Vector4 Vector4AddValue(Vector4 v, <span class="hljs-keyword">float</span> add)                               <span class="hljs-comment">// Add value to vector components</span>
+    Vector4 Vector4Subtract(Vector4 v1, Vector4 v2)                             <span class="hljs-comment">// Substract vectors</span>
+    Vector4 Vector4SubtractValue(Vector4 v, <span class="hljs-keyword">float</span> add)                          <span class="hljs-comment">// Substract value from vector components</span>
+    <span class="hljs-keyword">float</span> Vector4Length(Vector4 v)                                              <span class="hljs-comment">// Vector length</span>
+    <span class="hljs-keyword">float</span> Vector4LengthSqr(Vector4 v)                                           <span class="hljs-comment">// Vector square length</span>
+    <span class="hljs-keyword">float</span> Vector4DotProduct(Vector4 v1, Vector4 v2)                             <span class="hljs-comment">// Vectors dot product</span>
+    <span class="hljs-keyword">float</span> Vector4Distance(Vector4 v1, Vector4 v2)                               <span class="hljs-comment">// Calculate distance between two vectors</span>
+    <span class="hljs-keyword">float</span> Vector4DistanceSqr(Vector4 v1, Vector4 v2)                            <span class="hljs-comment">// Calculate square distance between two vectors</span>
+    Vector4 Vector4Scale(Vector4 v, <span class="hljs-keyword">float</span> scale)                                <span class="hljs-comment">// Scale vector components by value (multiply)</span>
+    Vector4 Vector4Multiply(Vector4 v1, Vector4 v2)                             <span class="hljs-comment">// Multiply vector by vector</span>
+    Vector4 Vector4Negate(Vector4 v)                                            <span class="hljs-comment">// Negate vector</span>
+    Vector4 Vector4Divide(Vector4 v1, Vector4 v2)                               <span class="hljs-comment">// Divide vector by vector</span>
+    Vector4 Vector4Normalize(Vector4 v)                                         <span class="hljs-comment">// Normalize provided vector</span>
+    Vector4 Vector4Min(Vector4 v1, Vector4 v2)                                  <span class="hljs-comment">// Get min value for each pair of components</span>
+    Vector4 Vector4Max(Vector4 v1, Vector4 v2)                                  <span class="hljs-comment">// Get max value for each pair of components</span>
+    Vector4 Vector4Lerp(Vector4 v1, Vector4 v2, <span class="hljs-keyword">float</span> amount)                   <span class="hljs-comment">// Calculate linear interpolation between two vectors</span>
+    Vector4 Vector4MoveTowards(Vector4 v, Vector4 target, <span class="hljs-keyword">float</span> maxDistance)    <span class="hljs-comment">// Move Vector towards target</span>
+    Vector4 Vector4Invert(Vector4 v)                                            <span class="hljs-comment">// Invert the given vector</span>
+    <span class="hljs-keyword">int</span> Vector4Equals(Vector4 p, Vector4 q)                                     <span class="hljs-comment">// Check whether two given vectors are almost equal</span>
+
+    <span class="hljs-comment">// Matrix math</span>
+    <span class="hljs-keyword">float</span> MatrixDeterminant(Matrix mat)                                         <span class="hljs-comment">// Compute matrix determinant</span>
+    <span class="hljs-keyword">float</span> MatrixTrace(Matrix mat)                                               <span class="hljs-comment">// Get the trace of the matrix (sum of the values along the diagonal)</span>
+    Matrix MatrixTranspose(Matrix mat)                                          <span class="hljs-comment">// Transposes provided matrix</span>
+    Matrix MatrixInvert(Matrix mat)                                             <span class="hljs-comment">// Invert provided matrix</span>
+    Matrix MatrixIdentity(<span class="hljs-keyword">void</span>)                                                 <span class="hljs-comment">// Get identity matrix</span>
+    Matrix MatrixAdd(Matrix left, Matrix right)                                 <span class="hljs-comment">// Add two matrices</span>
+    Matrix MatrixSubtract(Matrix left, Matrix right)                            <span class="hljs-comment">// Subtract two matrices (left - right)</span>
+    Matrix MatrixMultiply(Matrix left, Matrix right)                            <span class="hljs-comment">// Get two matrix multiplication NOTE: When multiplying matrices... the order matters!</span>
+    Matrix MatrixMultiplyValue(Matrix left, <span class="hljs-keyword">float</span> value)                        <span class="hljs-comment">// Multiply matrix components by value</span>
+    Matrix MatrixTranslate(<span class="hljs-keyword">float</span> x, <span class="hljs-keyword">float</span> y, <span class="hljs-keyword">float</span> z)                           <span class="hljs-comment">// Get translation matrix</span>
+    Matrix MatrixRotate(Vector3 axis, <span class="hljs-keyword">float</span> angle)                              <span class="hljs-comment">// Create rotation matrix from axis and angle NOTE: Angle should be provided in radians</span>
+    Matrix MatrixRotateX(<span class="hljs-keyword">float</span> angle)                                           <span class="hljs-comment">// Get x-rotation matrix NOTE: Angle must be provided in radians</span>
+    Matrix MatrixRotateY(<span class="hljs-keyword">float</span> angle)                                           <span class="hljs-comment">// Get y-rotation matrix NOTE: Angle must be provided in radians</span>
+    Matrix MatrixRotateZ(<span class="hljs-keyword">float</span> angle)                                           <span class="hljs-comment">// Get z-rotation matrix NOTE: Angle must be provided in radians</span>
+    Matrix MatrixRotateXYZ(Vector3 angle)                                       <span class="hljs-comment">// Get xyz-rotation matrix NOTE: Angle must be provided in radians</span>
+    Matrix MatrixRotateZYX(Vector3 angle)                                       <span class="hljs-comment">// Get zyx-rotation matrix NOTE: Angle must be provided in radians</span>
+    Matrix MatrixScale(<span class="hljs-keyword">float</span> x, <span class="hljs-keyword">float</span> y, <span class="hljs-keyword">float</span> z)                               <span class="hljs-comment">// Get scaling matrix</span>
+    Matrix MatrixFrustum(<span class="hljs-keyword">double</span> left, <span class="hljs-keyword">double</span> right, <span class="hljs-keyword">double</span> bottom, <span class="hljs-keyword">double</span> top, <span class="hljs-keyword">double</span> nearPlane, <span class="hljs-keyword">double</span> farPlane) <span class="hljs-comment">// Get perspective projection matrix</span>
+    Matrix MatrixPerspective(<span class="hljs-keyword">double</span> fovY, <span class="hljs-keyword">double</span> aspect, <span class="hljs-keyword">double</span> nearPlane, <span class="hljs-keyword">double</span> farPlane) <span class="hljs-comment">// Get perspective projection matrix NOTE: Fovy angle must be provided in radians</span>
+    Matrix MatrixOrtho(<span class="hljs-keyword">double</span> left, <span class="hljs-keyword">double</span> right, <span class="hljs-keyword">double</span> bottom, <span class="hljs-keyword">double</span> top, <span class="hljs-keyword">double</span> nearPlane, <span class="hljs-keyword">double</span> farPlane) <span class="hljs-comment">// Get orthographic projection matrix</span>
+    Matrix MatrixLookAt(Vector3 eye, Vector3 target, Vector3 up)                <span class="hljs-comment">// Get camera look-at matrix (view matrix)</span>
+    float16 MatrixToFloatV(Matrix mat)                                          <span class="hljs-comment">// Get float array of matrix data</span>
+
+    <span class="hljs-comment">// Quaternion math</span>
+    Quaternion QuaternionAdd(Quaternion q1, Quaternion q2)                      <span class="hljs-comment">// Add two quaternions</span>
+    Quaternion QuaternionAddValue(Quaternion q, <span class="hljs-keyword">float</span> add)                      <span class="hljs-comment">// Add quaternion and float value</span>
+    Quaternion QuaternionSubtract(Quaternion q1, Quaternion q2)                 <span class="hljs-comment">// Subtract two quaternions</span>
+    Quaternion QuaternionSubtractValue(Quaternion q, <span class="hljs-keyword">float</span> sub)                 <span class="hljs-comment">// Subtract quaternion and float value</span>
+    Quaternion QuaternionIdentity(<span class="hljs-keyword">void</span>)                                         <span class="hljs-comment">// Get identity quaternion</span>
+    <span class="hljs-keyword">float</span> QuaternionLength(Quaternion q)                                        <span class="hljs-comment">// Computes the length of a quaternion</span>
+    Quaternion QuaternionNormalize(Quaternion q)                                <span class="hljs-comment">// Normalize provided quaternion</span>
+    Quaternion QuaternionInvert(Quaternion q)                                   <span class="hljs-comment">// Invert provided quaternion</span>
+    Quaternion QuaternionMultiply(Quaternion q1, Quaternion q2)                 <span class="hljs-comment">// Calculate two quaternion multiplication</span>
+    Quaternion QuaternionScale(Quaternion q, <span class="hljs-keyword">float</span> mul)                         <span class="hljs-comment">// Scale quaternion by float value</span>
+    Quaternion QuaternionDivide(Quaternion q1, Quaternion q2)                   <span class="hljs-comment">// Divide two quaternions</span>
+    Quaternion QuaternionLerp(Quaternion q1, Quaternion q2, <span class="hljs-keyword">float</span> amount)       <span class="hljs-comment">// Calculate linear interpolation between two quaternions</span>
+    Quaternion QuaternionNlerp(Quaternion q1, Quaternion q2, <span class="hljs-keyword">float</span> amount)      <span class="hljs-comment">// Calculate slerp-optimized interpolation between two quaternions</span>
+    Quaternion QuaternionSlerp(Quaternion q1, Quaternion q2, <span class="hljs-keyword">float</span> amount)      <span class="hljs-comment">// Calculates spherical linear interpolation between two quaternions</span>
+    Quaternion QuaternionCubicHermiteSpline(Quaternion q1, Quaternion outTangent1, Quaternion q2, Quaternion inTangent2, <span class="hljs-keyword">float</span> t) <span class="hljs-comment">// Calculate quaternion cubic spline interpolation using Cubic Hermite Spline algorithm as described in the GLTF 2.0 specification: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#interpolation-cubic</span>
+    Quaternion QuaternionFromVector3ToVector3(Vector3 from, Vector3 to)         <span class="hljs-comment">// Calculate quaternion based on the rotation from one vector to another</span>
+    Quaternion QuaternionFromMatrix(Matrix mat)                                 <span class="hljs-comment">// Get a quaternion for a given rotation matrix</span>
+    Matrix QuaternionToMatrix(Quaternion q)                                     <span class="hljs-comment">// Get a matrix for a given quaternion</span>
+    Quaternion QuaternionFromAxisAngle(Vector3 axis, <span class="hljs-keyword">float</span> angle)               <span class="hljs-comment">// Get rotation quaternion for an angle and axis NOTE: Angle must be provided in radians</span>
+    <span class="hljs-keyword">void</span> QuaternionToAxisAngle(Quaternion q, Vector3 *outAxis, <span class="hljs-keyword">float</span> *outAngle) <span class="hljs-comment">// Get the rotation angle and axis for a given quaternion</span>
+    Quaternion QuaternionFromEuler(<span class="hljs-keyword">float</span> pitch, <span class="hljs-keyword">float</span> yaw, <span class="hljs-keyword">float</span> roll)          <span class="hljs-comment">// Get the quaternion equivalent to Euler angles NOTE: Rotation order is ZYX</span>
+    Vector3 QuaternionToEuler(Quaternion q)                                     <span class="hljs-comment">// Get the Euler angles equivalent to quaternion (roll, pitch, yaw) NOTE: Angles are returned in a Vector3 struct in radians</span>
+    Quaternion QuaternionTransform(Quaternion q, Matrix mat)                    <span class="hljs-comment">// Transform a quaternion given a transformation matrix</span>
+    <span class="hljs-keyword">int</span> QuaternionEquals(Quaternion p, Quaternion q)                            <span class="hljs-comment">// Check whether two given quaternions are almost equal</span>
+    Matrix MatrixCompose(Vector3 translation, Quaternion rotation, Vector3 scale) <span class="hljs-comment">// Compose a transformation matrix from rotational, translational and scaling components TODO: This function is not following raymath conventions defined in header: NOT self-contained</span>
+    <span class="hljs-keyword">void</span> MatrixDecompose(Matrix mat, Vector3 *translation, Quaternion *rotation, Vector3 *scale) <span class="hljs-comment">// Decompose a transformation matrix into its rotational, translational and scaling components and remove shear TODO: This function is not following raymath conventions defined in header: NOT self-contained</span>
+</code></pre></div>
+
+            <p>Other cheatsheets</p>
+            <ul>
+                <li>
+                    <a href="https://www.raylib.com/cheatsheet/cheatsheet.html" id="">raylib cheatsheet</a>
+                </li>
+            </ul>
+
+            <div id="copyright">
+                <p>raylib quick reference card - Copyright (c) 2013-2026 Ramon Santamaria (<a href="https://www.twitter.com/raysan5">@raysan5</a>)</p>
+            </div>
+        </div>
+    
+
+</body></html>
