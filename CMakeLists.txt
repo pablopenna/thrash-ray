@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(my_raylib_game C)
 set(CMAKE_C_STANDARD 99)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # Required to work with ZED IDE
 
 # Adding Raylib
 include(FetchContent)
