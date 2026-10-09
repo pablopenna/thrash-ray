@@ -13,8 +13,6 @@ typedef struct {
     float frameDuration;
     float frameDurationTimer;
     int currentFrame;
-    float scaleX;
-    float scaleY;
 } EntitySprite;
 
 typedef struct {
@@ -23,6 +21,9 @@ typedef struct {
     float moveSpeed;
     int spriteCount;
     int currentSprite;
+    float scaleX;
+    float scaleY;
+    Rectangle collisionShape;
     EntitySprite *sprites; // An entity should have 1 to n sprites. Points at a static array, not owned
     union {
         struct { int score; int hp; } player;
@@ -34,5 +35,7 @@ typedef struct {
     int count;
     Entity *entities;
 } EntityRegistry;
+
+Rectangle getEntityEffectiveCollisionShape(Entity *e);
 
 #endif

@@ -1,8 +1,11 @@
 #include "player.h"
 #include "entity/entity.h"
+#include "raylib.h"
 
 #define PLAYER_ANIM_IDLE 0
 #define PLAYER_MAX_ANIM 1
+
+#define DRAW_COLLISION 1
 
 static EntitySprite playerSprites[PLAYER_MAX_ANIM] = {
     [PLAYER_ANIM_IDLE] = {
@@ -12,8 +15,6 @@ static EntitySprite playerSprites[PLAYER_MAX_ANIM] = {
         .frameDuration = 0.15f,
         .frameDurationTimer = 0.0f,
         .currentFrame = 0,
-        .scaleX = 2.0f,
-        .scaleY = 2.0f
     }
 };
 
@@ -22,6 +23,14 @@ Entity player = {
     .moveSpeed = 250.0f,
     .spriteCount = PLAYER_MAX_ANIM,
     .currentSprite = PLAYER_ANIM_IDLE,
+    .scaleX = 2.0f,
+    .scaleY = 2.0f,
+    .collisionShape = {
+        .x = 0,
+        .y = 0,
+        .width = 32,
+        .height = 32,
+    },
     .sprites = playerSprites,
 };
 
@@ -63,8 +72,8 @@ void playerDraw(Entity *player) {
     Rectangle playerSpriteDest = {
         player->position.x,
         player->position.y,
-        (float) currentSprite->frameWidth * currentSprite->scaleX,
-        (float) currentSprite->frameHeight * currentSprite->scaleY,
+        (float) currentSprite->frameWidth * player->scaleX,
+        (float) currentSprite->frameHeight * player->scaleY,
     };
 
     DrawTexturePro(
@@ -75,4 +84,9 @@ void playerDraw(Entity *player) {
         0.0f,
         WHITE
     );
+
+    if(DRAW_COLLISION) {
+        Rectangle playerCollisionShape = getEntityEffectiveCollisionShape(player);
+        DrawRectangleLinesEx(playerCollisionShape, 1, RED);
+    }
 }
