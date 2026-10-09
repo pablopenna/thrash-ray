@@ -4,12 +4,13 @@
 #include "raylib.h"
 
 typedef struct {
-    Texture2D thrashguy_idle;
+    Texture2D thrashguy;
+    Texture2D meteorite;
 } Assets;
 
 extern Assets g_assets;
 
-void AssetsLoad(void);
-void AssetsUnload(void);
+void assetsLoad(void);
+void assetsUnload(void);
 
 #endif

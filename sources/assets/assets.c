@@ -2,10 +2,12 @@
 
 Assets g_assets = {0};
 
-void AssetsLoad(void) {
-    g_assets.thrashguy_idle = LoadTexture(ASSETS_PATH "thrashguy.png");
+void assetsLoad(void) {
+    g_assets.thrashguy = LoadTexture(ASSETS_PATH "thrashguy.png");
+    g_assets.meteorite = LoadTexture(ASSETS_PATH "meteorite.png");
 }
 
-void AssetsUnload(void) {
-    UnloadTexture(g_assets.thrashguy_idle);
+void assetsUnload(void) {
+    UnloadTexture(g_assets.thrashguy);
+    UnloadTexture(g_assets.meteorite);
 }

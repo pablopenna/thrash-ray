@@ -3,39 +3,55 @@
 
 #include "raylib.h"
 
+#define DRAW_COLLISIONS 1
+
 typedef enum { ENTITY_PLAYER, ENTITY_METEOR } EntityType;
+
+typedef struct {
+    int hp;
+} PlayerData;
+
+typedef struct {
+    bool active;
+    Vector2 direction;
+} MeteoriteData;
 
 typedef struct {
     Texture2D spriteSheet;
     int frameWidth;
     int frameHeight;
-    int frameCount;
+    int frameStart; // From which frame the animation starts
+    int frameCount; // How many frames the animation lasts (frames need to be together)
     float frameDuration;
-    float frameDurationTimer;
+} EntityAnimation;
+
+typedef struct {
+    int currentAnimation;
+    float scaleX;
+    float scaleY;
     int currentFrame;
-} EntitySprite;
+    float frameDurationTimer;
+} EntityAnimationState;
 
 typedef struct {
     EntityType type;
     Vector2 position;
     float moveSpeed;
-    int spriteCount;
-    int currentSprite;
-    float scaleX;
-    float scaleY;
     Rectangle collisionShape;
-    EntitySprite *sprites; // An entity should have 1 to n sprites. Points at a static array, not owned
+    EntityAnimation *sprites; // An entity should have 1 to n sprites. Points at a static array, not owned
+    EntityAnimationState animationState;
     union {
-        struct { int score; int hp; } player;
-        struct { int size; } meteor;
+        PlayerData player;
+        MeteoriteData meteor;
     } data;
 } Entity;
 
-typedef struct {
-    int count;
-    Entity *entities;
-} EntityRegistry;
-
 Rectangle getEntityEffectiveCollisionShape(Entity *e);
+/** Updates frame index of the animation if enough time has passed. */
+void updateEntityAnimation(Entity *e, float delta);
+/** Moves entity in the given direction */
+void entityMoveByDirection(Entity *e, Vector2 direction, float delta);
+/** Draws current sprite of the entity */
+void drawEntity(Entity *e);
 
 #endif
