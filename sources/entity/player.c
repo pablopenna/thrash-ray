@@ -37,6 +37,7 @@ void playerInit() {
 
 void playerUpdate(Entity *player, float delta) {
     updateEntityAnimation(player, delta);
+    player->animationState.rotation += delta * 100.0f;
 
     Vector2 direction = {0,0};
     if(IsKeyDown(KEY_A)) {

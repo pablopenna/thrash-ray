@@ -3,9 +3,13 @@
 #include "raymath.h"
 
 Rectangle getEntityEffectiveCollisionShape(Entity *entity) {
+    EntityAnimation *data = &entity->sprites[entity->animationState.currentAnimation];
+    float xOffset = (data->frameWidth * entity->animationState.scaleX) / 2.0f;
+    float yOffset = (data->frameHeight * entity->animationState.scaleY) / 2.0f;
+
     Rectangle collisionShape = (Rectangle){
-        .x = entity->collisionShape.x + entity->position.x,
-        .y = entity->collisionShape.y + entity->position.y,
+        .x = entity->collisionShape.x + entity->position.x - xOffset,
+        .y = entity->collisionShape.y + entity->position.y - yOffset,
         .width = entity->collisionShape.width * entity->animationState.scaleX,
         .height = entity->collisionShape.height * entity->animationState.scaleY,
     };
@@ -51,8 +55,11 @@ void drawEntity(Entity *entity) {
         data->spriteSheet,
         spriteSource,
         spriteDest,
-        (Vector2){0.0f, 0.0f},
-        0.0f,
+        (Vector2){
+            (data->frameWidth * state->scaleX) / 2.0f,
+            (data->frameHeight * state->scaleY) / 2.0f
+        }, // Center of the sprite so rotation pivot is its center
+        state->rotation,
         WHITE
     );
 

@@ -29,6 +29,7 @@ typedef struct {
     int currentAnimation;
     float scaleX;
     float scaleY;
+    float rotation;
     int currentFrame;
     float frameDurationTimer;
 } EntityAnimationState;
@@ -38,8 +39,8 @@ typedef struct {
     Vector2 position;
     float moveSpeed;
     Rectangle collisionShape;
-    EntityAnimation *sprites; // An entity should have 1 to n sprites. Points at a static array, not owned
-    EntityAnimationState animationState;
+    EntityAnimation *sprites; // Shared among instances of same type
+    EntityAnimationState animationState; // unique per instance
     union {
         PlayerData player;
         MeteoriteData meteor;
