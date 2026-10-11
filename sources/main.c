@@ -27,11 +27,12 @@ void gameInit() {
 }
 
 void gameUpdate() {
+    processPlayerFloorCollisions();
     processMeteoriteFloorCollisions();
     processMeteoriteMeteoriteCollisions();
 
     float delta = GetFrameTime();
-    playerUpdate(&player, delta);
+    playerUpdate(delta);
     meteoritesUpdateAll(delta);
     floorUpdate();
 
@@ -42,7 +43,7 @@ void gameDraw() {
     BeginDrawing();
     ClearBackground(BLACK);
 
-    playerDraw(&player);
+    playerDraw();
     meteoritesDrawAll();
     floorDraw();
 

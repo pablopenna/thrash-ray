@@ -14,7 +14,7 @@ static EntityAnimation playerSprites[PLAYER_MAX_ANIM] = {
     }
 };
 
-Entity player = {
+static Entity player = {
     .position = { 0, 0 },
     .moveSpeed = 250.0f,
     .animationState = {
@@ -31,33 +31,40 @@ Entity player = {
     .sprites = playerSprites,
 };
 
+Entity* getPlayer() {
+    return &player;
+}
+
 void playerInit() {
     playerSprites[PLAYER_ANIM_IDLE].spriteSheet = g_assets.thrashguy;
 }
 
-void playerUpdate(Entity *player, float delta) {
+void playerUpdate(float delta) {
+    Entity* player = getPlayer();
     updateEntityAnimation(player, delta);
     player->animationState.rotation += delta * 100.0f;
 
     Vector2 direction = {0,0};
+
+    // Input
     if(IsKeyDown(KEY_A)) {
         direction.x -= 1;
     }
     if(IsKeyDown(KEY_D)) {
         direction.x = 1;
     }
-    if(IsKeyDown(KEY_W)) {
-        direction.y -= 1;
-    }
-    if(IsKeyDown(KEY_S)) {
-        direction.y += 1;
-    }
     direction = Vector2Normalize(direction);
 
     player->position.x += direction.x * player->moveSpeed * delta;
-    player->position.y += direction.y * player->moveSpeed * delta;
+
+    // Gravity
+    if(!player->data.player.isGrounded) {
+        int downward = 1;
+        player->position.y += downward * player->moveSpeed * delta;
+    }
 }
 
-void playerDraw(Entity *player) {
+void playerDraw() {
+    Entity* player = getPlayer();
     drawEntity(player);
 }

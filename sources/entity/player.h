@@ -6,10 +6,10 @@
 #define PLAYER_ANIM_IDLE 0
 #define PLAYER_MAX_ANIM 1
 
-extern Entity player;
+Entity* getPlayer();
 
 void playerInit();
-void playerUpdate(Entity *player, float delta);
-void playerDraw(Entity *player);
+void playerUpdate(float delta);
+void playerDraw();
 
 #endif

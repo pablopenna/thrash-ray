@@ -8,6 +8,7 @@
 typedef enum { ENTITY_PLAYER, ENTITY_METEOR } EntityType;
 
 typedef struct {
+    bool isGrounded;
     int hp;
 } PlayerData;
 
