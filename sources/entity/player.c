@@ -40,6 +40,8 @@ void playerInit() {
 
 void playerUpdate(float delta) {
     Entity* player = getPlayer();
+    if(player->data.player.isDead) return;
+
     updateEntityAnimation(player, delta);
     player->animationState.rotation += delta * 100.0f;
 
@@ -78,5 +80,7 @@ void playerUpdate(float delta) {
 
 void playerDraw() {
     Entity* player = getPlayer();
+    if(player->data.player.isDead) return;
+
     drawEntity(player);
 }

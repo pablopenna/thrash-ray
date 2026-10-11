@@ -6,6 +6,7 @@
 #include "entity/meteorite.h"
 
 #include "system/collisions.h"
+#include "system/game_over.h"
 #include "system/spawn.h"
 #include "system/floor.h"
 
@@ -37,6 +38,8 @@ void gameUpdate() {
     floorUpdate();
 
     processMeteoriteSpawn(delta);
+
+    processGameOver();
 }
 
 void gameDraw() {
@@ -46,6 +49,8 @@ void gameDraw() {
     playerDraw();
     meteoritesDrawAll();
     floorDraw();
+
+    drawGameOver();
 
     EndDrawing();
 }

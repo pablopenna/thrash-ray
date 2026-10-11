@@ -10,7 +10,7 @@ typedef enum { ENTITY_PLAYER, ENTITY_METEOR } EntityType;
 typedef struct {
     bool isGrounded;
     Vector2 velocity;
-    int hp;
+    bool isDead;
 } PlayerData;
 
 typedef struct {

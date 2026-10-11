@@ -1,6 +1,7 @@
 #ifndef FLOOR_H
 #define FLOOR_H
 
+#include "entity/entity.h"
 #include "raylib.h"
 
 #define MIN_FLOOR_TILES 2
@@ -21,5 +22,7 @@ FloorTile* getFloorTileAt(int index);
 void floorInit();
 void floorUpdate();
 void floorDraw();
+
+bool isEntityUnderFloor(Entity* entity);
 
 #endif

@@ -6,6 +6,7 @@
 
 static FloorTile floorTiles[MAX_FLOOR_TILES];
 static int numberOfFloorTiles = 0;
+static int underFloorYCoord = 0; // y coordinate right below the floor
 
 int getNumberOfFloorTiles() {
     return numberOfFloorTiles;
@@ -13,6 +14,10 @@ int getNumberOfFloorTiles() {
 
 FloorTile* getFloorTileAt(int index) {
     return &floorTiles[index];
+}
+
+bool isEntityUnderFloor(Entity* entity) {
+    return entity->position.y > underFloorYCoord;
 }
 
 FloorTile generateTileAt(int index, int yPos) {
@@ -40,6 +45,7 @@ void drawTile(FloorTile* tile) {
 void floorInit() {
     numberOfFloorTiles = iClamp(GetScreenWidth()/FLOOR_TILE_WIDTH, MIN_FLOOR_TILES, MAX_FLOOR_TILES);
     int tileY = GetScreenHeight() - FLOOR_TILE_HEIGHT;
+    underFloorYCoord = tileY + FLOOR_TILE_HEIGHT;
 
     for(int i=0; i<numberOfFloorTiles; i++) {
         floorTiles[i] = generateTileAt(i, tileY);
