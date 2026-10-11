@@ -5,7 +5,9 @@
 #include "entity/player.h"
 #include "entity/meteorite.h"
 
+#include "system/collisions.h"
 #include "system/spawn.h"
+#include "system/floor.h"
 
 
 #define SCREEN_WIDTH (800)
@@ -21,16 +23,19 @@ void gameInit() {
 
     playerInit();
     meteoritesInit();
-
-    // setupNewMeteorite((Vector2){100, 100}, (Vector2){0,0});
+    floorInit();
 }
 
 void gameUpdate() {
+    processMeteoriteFloorCollisions();
+    processMeteoriteMeteoriteCollisions();
+
     float delta = GetFrameTime();
     playerUpdate(&player, delta);
     meteoritesUpdateAll(delta);
+    floorUpdate();
 
-    processMeteoriteSpawn(delta, SCREEN_WIDTH, SCREEN_HEIGHT);
+    processMeteoriteSpawn(delta);
 }
 
 void gameDraw() {
@@ -39,6 +44,7 @@ void gameDraw() {
 
     playerDraw(&player);
     meteoritesDrawAll();
+    floorDraw();
 
     EndDrawing();
 }

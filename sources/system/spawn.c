@@ -15,7 +15,9 @@ void spawnMeteorite(int screenWidth, int screenHeight) {
     setupNewMeteorite(origin, direction);
 }
 
-void processMeteoriteSpawn(float delta, int screenWidth, int screenHeight) {
+void processMeteoriteSpawn(float delta) {
+    int screenWidth = GetScreenWidth();
+    int screenHeight = GetScreenHeight();
     timer += delta;
     if(timer >= spawnCooldown) {
         timer = 0;

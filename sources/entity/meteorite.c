@@ -24,6 +24,10 @@ static EntityAnimation meteorite_sprites[] = {
 
 static Entity meteorite_pool[METEORITE_MAX_QUANTITY] = {0};
 
+Entity* getAllMeteorites() {
+    return meteorite_pool;
+}
+
 // Returns by value
 Entity meteoriteCreate() {
   return (Entity){

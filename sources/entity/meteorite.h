@@ -14,6 +14,7 @@ void meteoritesInit();
 void meteoritesUpdateAll(float delta);
 void meteoritesDrawAll();
 
-Entity* setupNewMeteorite(Vector2 position, Vector2 direction);
+Entity* setupNewMeteorite(Vector2 position, Vector2 direction); // Needed by spawn.c
+Entity* getAllMeteorites(); // Needed by collisions.c
 
 #endif
