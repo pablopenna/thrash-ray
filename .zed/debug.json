@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Debug thrashray (CodeLLDB)",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "build": "Build (Debug)",
+    "program": "$ZED_WORKTREE_ROOT/build/thrashray",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Configure (Debug)",
+    "command": "cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug",
+    "use_new_terminal": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Build (Debug)",
+    "command": "cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug && cmake --build build -j",
+    "use_new_terminal": false,
+    "reveal": "always"
+  }
+]
