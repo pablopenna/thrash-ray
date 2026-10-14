@@ -33,7 +33,7 @@ void gameUpdate() {
     meteoritesUpdateAll(delta);
     floorUpdate();
 
-    processMeteoriteSpawn(delta);
+    // processMeteoriteSpawn(delta);
 
     processGameOver();
 }

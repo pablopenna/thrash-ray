@@ -5,6 +5,7 @@
 #include "entity/states/player/player_state_jump.h"
 #include "entity/states/player/player_state_idle.h"
 #include "entity/states/player/player_state_run.h"
+#include "entity/states/player/player_state_rotate.h"
 
 #include "raylib.h"
 
@@ -23,8 +24,13 @@ static void update(Entity *e, float delta) {
         return;
     }
 
-    if (IsKeyPressed(KEY_SPACE)) {
+    if (IsKeyPressed(PLAYER_INPUT_JUMP)) {
         changeState(e, &PLAYER_STATE_JUMP);
+        return;
+    }
+
+    if (IsKeyPressed(PLAYER_INPUT_ROTATE_LEFT) || IsKeyPressed(PLAYER_INPUT_ROTATE_RIGHT)) {
+        changeState(e, &PLAYER_STATE_ROTATE);
         return;
     }
 }
