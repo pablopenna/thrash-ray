@@ -1,7 +1,8 @@
 #include "player.h"
 #include "assets/assets.h"
 #include "entity.h"
-#include "raylib.h"
+#include "entity/states/player/player_state_idle.h"
+#include "entity/states/state_machine.h"
 
 static EntityAnimation playerSprites[PLAYER_MAX_ANIM] = {
     [PLAYER_ANIM_IDLE] = {
@@ -28,6 +29,7 @@ static Entity player = {
         .height = 32,
     },
     .sprites = playerSprites,
+    .currentState = &PLAYER_STATE_IDLE
 };
 
 Entity* getPlayer() {
@@ -40,42 +42,7 @@ void playerInit() {
 
 void playerUpdate(float delta) {
     Entity* player = getPlayer();
-    if(player->data.player.isDead) return;
-
-    updateEntityAnimation(player, delta);
-    player->animationState.rotation += delta * 100.0f;
-
-    // Horizontal movement
-    int xDirection = 0;
-    if(IsKeyDown(KEY_A)) {
-        xDirection -= 1;
-    }
-    if(IsKeyDown(KEY_D)) {
-        xDirection = 1;
-    }
-    player->data.player.velocity.x = xDirection * player->moveSpeed;
-    player->position.x += player->data.player.velocity.x * delta;
-
-    // Horizontal movement - Air
-    if(player->data.player.isGrounded) {
-        player->data.player.velocity.y = 0;
-    }
-
-    float jumpSpeed = 500.0f;
-    if (player->data.player.isGrounded && IsKeyPressed(KEY_SPACE)) {
-        player->data.player.velocity.y -= jumpSpeed;
-    }
-
-    float gravity = 15.0f;
-    if(!player->data.player.isGrounded) {
-        player->data.player.velocity.y += gravity;
-
-        if(IsKeyReleased(KEY_SPACE) && player->data.player.velocity.y < 0) {
-            player->data.player.velocity.y *= 0.5f;   // kill half the upward speed
-        }
-    }
-
-    player->position.y += player->data.player.velocity.y * delta;
+    runCurrentState(player, delta);
 }
 
 void playerDraw() {

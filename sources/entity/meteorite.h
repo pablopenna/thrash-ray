@@ -1,5 +1,5 @@
-#ifndef METEORITE_H
-#define METEORITE_H
+#ifndef ENTITY_METEORITE_H
+#define ENTITY_METEORITE_H
 
 #include "raylib.h"
 #include "entity.h"

@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef ENTITY_PLAYER_H
+#define ENTITY_PLAYER_H
 
 #include "entity.h"
 

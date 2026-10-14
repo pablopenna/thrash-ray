@@ -1,5 +1,7 @@
 #include "raylib.h"
 
+#include "config.h"
+
 #include "assets/assets.h"
 
 #include "entity/player.h"
@@ -10,15 +12,9 @@
 #include "system/spawn.h"
 #include "system/floor.h"
 
-
-#define SCREEN_WIDTH (800)
-#define SCREEN_HEIGHT (450)
-
-#define WINDOW_TITLE "Ray Thrash"
-
 void gameInit() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
-    SetTargetFPS(60);
+    SetTargetFPS(TARGET_FPS);
 
     assetsLoad();
 

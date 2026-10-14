@@ -5,8 +5,10 @@
 #include "system/floor.h"
 #include "raylib.h"
 
-void onPlayerFloorCollision(Entity* player) {
+void onPlayerFloorCollision(Entity* player, const Rectangle* collisionShape) {
    player->data.player.isGrounded = true;
+   // prevent sinking into the floor
+   player->position.y -= collisionShape->height - 1; // 1 pixel still collide with floor and not set isGrounded = false in next frame
 }
 
 void onPlayerNoFloorCollision(Entity* player) {
@@ -34,9 +36,9 @@ void processPlayerFloorCollisions() {
         if(!currentFloorTile->isActive) {
             continue;
         }
-        char collided = CheckCollisionRecs(getEntityEffectiveCollisionShape(player), currentFloorTile->rectangle);
-        if(collided) {
-            onPlayerFloorCollision(player);
+        Rectangle collisionRect = GetCollisionRec(getEntityEffectiveCollisionShape(player), currentFloorTile->rectangle);
+        if(collisionRect.height > 0 && collisionRect.width > 0) {
+            onPlayerFloorCollision(player, &collisionRect);
             return;
         }
     }

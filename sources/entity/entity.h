@@ -36,6 +36,7 @@ typedef struct {
     float frameDurationTimer;
 } EntityAnimationState;
 
+typedef struct State State; // Forward declaration to avoid circular dependency - cannot import state_machine.h
 typedef struct {
     EntityType type;
     Vector2 position;
@@ -43,6 +44,7 @@ typedef struct {
     Rectangle collisionShape;
     EntityAnimation *sprites; // Shared among instances of same type
     EntityAnimationState animationState; // unique per instance
+    const State *currentState;
     union {
         PlayerData player;
         MeteoriteData meteor;
