@@ -1,3 +1,4 @@
+#include "entity/player_shot.h"
 #include "raylib.h"
 
 #include "config.h"
@@ -25,15 +26,17 @@ void gameInit() {
 
 void gameUpdate() {
     processPlayerFloorCollisions();
+    processPlayerShotMeteoriteCollisions();
     processMeteoriteFloorCollisions();
     processMeteoriteMeteoriteCollisions();
 
     float delta = GetFrameTime();
     playerUpdate(delta);
+    playerShotUpdate(delta);
     meteoritesUpdateAll(delta);
     floorUpdate();
 
-    // processMeteoriteSpawn(delta);
+    processMeteoriteSpawn(delta);
 
     processGameOver();
 }
@@ -43,6 +46,7 @@ void gameDraw() {
     ClearBackground(BLACK);
 
     playerDraw();
+    playerShotDraw();
     meteoritesDrawAll();
     floorDraw();
 

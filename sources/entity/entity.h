@@ -3,14 +3,14 @@
 
 #include "raylib.h"
 
-#define DRAW_COLLISIONS 1
-
 typedef enum { ENTITY_PLAYER, ENTITY_METEOR } EntityType;
 
+typedef struct PlayerShot PlayerShot; // Forward declaration
 typedef struct {
     bool isGrounded;
     Vector2 velocity;
     bool isDead;
+    PlayerShot *projectile;
 } PlayerData;
 
 typedef struct {

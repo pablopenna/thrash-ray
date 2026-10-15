@@ -1,3 +1,4 @@
+#include "config.h"
 #include "entity.h"
 
 #include "raymath.h"
@@ -63,8 +64,8 @@ void drawEntity(Entity *entity) {
         WHITE
     );
 
-    if(DRAW_COLLISIONS) {
+    #if DRAW_COLLISIONS
         Rectangle collisionShape = getEntityEffectiveCollisionShape(entity);
         DrawRectangleLinesEx(collisionShape, 1, RED);
-    }
+    #endif
 }

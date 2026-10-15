@@ -36,6 +36,8 @@ static void update(Entity *player, float delta) {
     player->data.player.velocity.x = xDirection * player->moveSpeed;
     player->position.x += player->data.player.velocity.x * delta;
 
+    player->animationState.rotation += xDirection * PLAYER_ROTATION_SPEED *delta;
+
     player->data.player.velocity.y += GRAVITY;
     if(!has_speed_been_reduced && IsKeyReleased(KEY_SPACE) && player->data.player.velocity.y < 0) {
         player->data.player.velocity.y *= 0.5f;   // kill half the upward speed
@@ -45,7 +47,9 @@ static void update(Entity *player, float delta) {
     player->position.y += player->data.player.velocity.y * delta;
 }
 
-static void exit(Entity *e) {}
+static void exit(Entity *player) {
+    player->animationState.rotation = 0;
+}
 
 // A statically defined State value.
 const State PLAYER_STATE_AIR = {

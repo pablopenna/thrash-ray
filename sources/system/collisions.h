@@ -4,5 +4,6 @@
 void processPlayerFloorCollisions();
 void processMeteoriteFloorCollisions();
 void processMeteoriteMeteoriteCollisions();
+void processPlayerShotMeteoriteCollisions();
 
 #endif

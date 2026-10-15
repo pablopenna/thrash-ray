@@ -1,8 +1,11 @@
 #include "player.h"
+#include "player_shot.h"
 #include "assets/assets.h"
+#include "config.h"
 #include "entity.h"
 #include "entity/states/player/player_state_idle.h"
 #include "entity/states/state_machine.h"
+#include "raylib.h"
 
 static EntityAnimation playerSprites[PLAYER_MAX_ANIM] = {
     [PLAYER_ANIM_IDLE] = {
@@ -29,7 +32,7 @@ static Entity player = {
         .height = 32,
     },
     .sprites = playerSprites,
-    .currentState = &PLAYER_STATE_IDLE
+    .currentState = &PLAYER_STATE_IDLE,
 };
 
 Entity* getPlayer() {
@@ -42,7 +45,12 @@ void playerInit() {
 
 void playerUpdate(float delta) {
     Entity* player = getPlayer();
+    PlayerShot* shot = getPlayerShot();
     runCurrentState(player, delta);
+
+    if(IsKeyPressed(PLAYER_INPUT_SHOOT)) {
+        onPlayerShot(player, shot);
+    }
 }
 
 void playerDraw() {
