@@ -79,7 +79,7 @@ Entity* setupNewMeteorite(Vector2 position, Vector2 direction) {
     meteorite->data.meteor.active = true;
     meteorite->data.meteor.direction = direction;
     meteorite->position = position;
-    meteorite->animationState.rotation = Vector2Angle(
+    meteorite->animationState.rotationDeg = Vector2Angle(
         (Vector2) {0, 1}, // Meteorite sprite is facing down
         direction
     ) * RAD2DEG;

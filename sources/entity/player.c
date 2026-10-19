@@ -45,10 +45,11 @@ void playerInit() {
 
 void playerUpdate(float delta) {
     Entity* player = getPlayer();
-    PlayerShot* shot = getPlayerShot();
+    updateEntityAnimation(player, delta);
     runCurrentState(player, delta);
 
     if(IsKeyPressed(PLAYER_INPUT_SHOOT)) {
+        PlayerShot* shot = getPlayerShot();
         onPlayerShot(player, shot);
     }
 }

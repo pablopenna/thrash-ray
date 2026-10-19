@@ -31,7 +31,7 @@ typedef struct {
     int currentAnimation;
     float scaleX;
     float scaleY;
-    float rotation;
+    float rotationDeg;
     int currentFrame;
     float frameDurationTimer;
 } EntityAnimationState;

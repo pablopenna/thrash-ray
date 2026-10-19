@@ -10,7 +10,7 @@ static void enter(Entity *e, const State *previousState) {
 }
 
 static void update(Entity *player, float delta) {
-    float *rotation = &player->animationState.rotation;
+    float *rotation = &player->animationState.rotationDeg;
     if(!IsKeyDown(PLAYER_INPUT_ROTATE_LEFT) && !IsKeyDown(PLAYER_INPUT_ROTATE_RIGHT) && FloatEquals(*rotation, 0)) {
         changeState(player, &PLAYER_STATE_AIR);
         return;

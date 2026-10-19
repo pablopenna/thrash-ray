@@ -36,7 +36,7 @@ static void update(Entity *player, float delta) {
     player->data.player.velocity.x = xDirection * player->moveSpeed;
     player->position.x += player->data.player.velocity.x * delta;
 
-    player->animationState.rotation += xDirection * PLAYER_ROTATION_SPEED *delta;
+    player->animationState.rotationDeg += xDirection * PLAYER_ROTATION_SPEED *delta;
 
     player->data.player.velocity.y += GRAVITY;
     if(!has_speed_been_reduced && IsKeyReleased(KEY_SPACE) && player->data.player.velocity.y < 0) {
@@ -48,7 +48,7 @@ static void update(Entity *player, float delta) {
 }
 
 static void exit(Entity *player) {
-    player->animationState.rotation = 0;
+    player->animationState.rotationDeg = 0;
 }
 
 // A statically defined State value.

@@ -4,7 +4,7 @@
 #include "entity.h"
 
 struct PlayerShot {
-    Vector2 *projectilePoints; // array
+    Vector2 *projectilePoints;
     int pointCount;
     float duration;
     float timer;

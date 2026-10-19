@@ -60,7 +60,7 @@ void drawEntity(Entity *entity) {
             (data->frameWidth * state->scaleX) / 2.0f,
             (data->frameHeight * state->scaleY) / 2.0f
         }, // Center of the sprite so rotation pivot is its center
-        state->rotation,
+        state->rotationDeg,
         WHITE
     );
 

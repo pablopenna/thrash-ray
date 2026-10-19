@@ -1,25 +1,48 @@
 #include "player_shot.h"
 #include "entity.h"
 #include "raylib.h"
+#include "raymath.h"
+
+#define SHOT_POINTS 4
 
 static PlayerShot shot = {};
-static Vector2 points[10] = {};
+static Vector2 base_shot_points[SHOT_POINTS] = {
+    (Vector2) {.x = 0, .y = 0},
+    (Vector2) {.x = -25, .y = -50},
+    (Vector2) {.x = 25, .y = -100},
+    (Vector2) {.x = 0, .y = -150},
+};
+static Vector2 shot_points[SHOT_POINTS] = {};
 
 PlayerShot* getPlayerShot() {
     return &shot;
 }
 
-void onPlayerShot(Entity* player, PlayerShot* shot) {
-    Vector2 originPoint = (Vector2) {
+void applyTransformations(Entity* player) {
+    Vector2 playerShootingPoint = (Vector2) {
         .x = player->position.x,
-        .y = player->position.y - (player->sprites->frameHeight * player->animationState.scaleY)/2.0f};
-    points[0] = (Vector2) {.x = originPoint.x, .y = originPoint.y};
-    points[1] = (Vector2) {.x = originPoint.x - 25, .y = originPoint.y - 50};
-    points[2] = (Vector2) {.x = originPoint.x + 25, .y = originPoint.y - 100};
-    points[3] = (Vector2) {.x = originPoint.x, .y = originPoint.y - 150};
+        .y = player->position.y - (player->sprites->frameHeight * player->animationState.scaleY)/2.0f
+    };
 
-    shot->projectilePoints = points;
-    shot->pointCount = 4;
+    // transform
+    for(int i=0;i<SHOT_POINTS;i++) {
+        shot_points[i] = Vector2Add(playerShootingPoint, base_shot_points[i]);
+    }
+
+    // rotation
+    Vector2 pivot = playerShootingPoint;
+    for (int i=0;i<SHOT_POINTS;i++) {
+        Vector2 rel = Vector2Subtract(shot_points[i], pivot); // pivot -> origin
+        rel = Vector2Rotate(rel, player->animationState.rotationDeg * DEG2RAD); // rotate
+        shot_points[i] = Vector2Add(rel, pivot); // origin -> pivot back
+    }
+}
+
+void onPlayerShot(Entity* player, PlayerShot* shot) {
+    applyTransformations(player);
+
+    shot->projectilePoints = shot_points;
+    shot->pointCount = SHOT_POINTS;
     shot->duration = 0.5f;
     shot->timer = 0.0f;
     shot->isActive = true;
